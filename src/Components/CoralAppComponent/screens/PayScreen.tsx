@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { BrowserRouter as Router, Link, useLocation } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,9 +7,34 @@ import {
   faUser,
   faDollarSign,
 } from "@fortawesome/free-solid-svg-icons";
-import GlowingButton from '../../UIComponents/glowingButton'
+// import GlowingButton from '../../UIComponents/glowingButton'
+
+
+const openPaymentGateway = () => {
+  console.log('we are in this func')
+  return(
+    <iframe className="min-w-[768px]" height="760"
+        src="https://demo.flinks.com/v2/?closeEnable=true&accountSelectorEnable=true&accountSelectorCurrency=cad">
+    </iframe>
+  )
+}
 
 const PayScreen = () => {
+
+
+  const [showIframe, setShowIframe] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowIframe(true);
+  };
+
+  const handleIframeClose = () => {
+    setShowIframe(false);
+  };
+
+
+
+
   return (
     <div className="bg-gradient-to-b from-pink-100 via-green-100 to-greenTheme h-screen">
       <div className="h-screen overflow-hidden px-4 md:px-8">
@@ -29,9 +54,10 @@ const PayScreen = () => {
           <div>
             <div className="w-full md:max-w-md h-full rounded-full shadow-2xl bg-gray-100">
               <button
-                onClick={() => {
-                  console.log("hello");
-                }}
+                onClick={
+                  // console.log("hello");
+                  handleButtonClick
+                }
                 className="text-white text-6xl p-24 focus:outline-none"
               >
                 <FontAwesomeIcon
@@ -42,6 +68,24 @@ const PayScreen = () => {
             </div>
           </div>
         </div>
+
+
+        {showIframe && (
+        <div className="fixed top-0 left-0 z-50 w-full h-full bg-gray-500 bg-opacity-50 flex justify-center items-center">
+          <div className="bg-white p-4 rounded">
+            <button className="absolute top-2 right-2" onClick={handleIframeClose}>
+              X
+            </button>
+            <iframe
+              className="w-full h-[70vh]"
+              src="https://demo.flinks.com/v2/"
+            />
+          </div>
+        </div>
+      )}
+
+
+
 
         <div className="flex justify-center items-center mt-2">
           <div className="fixed bottom-0 w-full md:max-w-md h-14 bg-green-100 border border-gray-200 rounded-t-xl flex justify-between items-center p-2 shadow-lg">

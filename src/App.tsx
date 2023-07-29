@@ -8,14 +8,13 @@ import './styles/tailwind.css';
 import VerifyEmail from './Components/MainAppComponent/VerifyEmail';
 import HomeAddressForm from './Components/MainAppComponent/HomeAddressForm';
 import CreateProfile from './Components/MainAppComponent/CreateProfile';
-import ProfilePage from './Components/MainAppComponent/ProfilePage';
+// import ProfilePage from './Components/MainAppComponent/ProfilePage';
 import Login from './Components/MainAppComponent/Login';
 import { ToastContainer } from 'react-toastify';
 import MainScreen from './Components/CoralAppComponent/MainScreen';
 import ProfileScreen from './Components/CoralAppComponent/screens/ProfileScreen';
 import PayScreen from './Components/CoralAppComponent/screens/PayScreen';
 import TransactionsScreen from './Components/CoralAppComponent/screens/TransactionsScreen';
-import Test1 from './Components/testComponents/Test1';
 
 const appRouter = createBrowserRouter([
   {
@@ -47,10 +46,10 @@ const appRouter = createBrowserRouter([
     path: 'CreateProfile',
     element: <CreateProfile/>
   },
-  {
-    path: 'profilePage',
-    element: <ProfilePage/>
-  },
+  // {
+  //   path: 'profilePage',
+  //   element: <ProfilePage/>
+  // },
   {
     path: 'mainscreen',
     element: <MainScreen/>
@@ -67,10 +66,6 @@ const appRouter = createBrowserRouter([
     path: 'transactions',
     element: <TransactionsScreen/>
   },
-  {
-    path: 'test1',
-    element: <Test1/>
-  }
   
 ])
 

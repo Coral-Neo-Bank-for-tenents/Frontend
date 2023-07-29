@@ -21,7 +21,7 @@ const ProfileScreen = () => {
         </div>
       </div>
 
-      <ProfilePage/>
+      {/* <ProfilePage/> */}
 
      
       <div className="flex justify-center items-center mt-2">
